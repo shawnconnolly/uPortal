@@ -734,8 +734,10 @@
         </xsl:if>
         <xsl:call-template name="page.js" />
     </head>
-        <body class="up dashboard portal fl-theme-mist detachedHeader">
+    <body class="up dashboard portal fl-theme-mist detachedHeader">
         <div id="wrapper">
+            <xsl:call-template name="region.hidden-top" />
+            <xsl:call-template name="region.page-top" />
             <xsl:choose>
                 <!-- Show Sticky Header -->
                 <xsl:when test="/layout_fragment/content/channel/parameter[@name='showHeaderWhenDetached']/@value = 'true'">
@@ -797,13 +799,15 @@
                     </div>
                 </xsl:otherwise>
             </xsl:choose>
-            </div>
-      <script type="text/javascript">
+            <xsl:call-template name="region.page-bottom" />
+            <xsl:call-template name="region.hidden-bottom" />
+        </div>
+        <script type="text/javascript">
         up.analytics = up.analytics || {};
         up.analytics.host = '<xsl:value-of select="$HOST_NAME" />';
         up.analytics.portletData = <portlet-analytics-data/>;
         up.analytics.pageData = <page-analytics-data/>;
-      </script>
+        </script>
     </body>
   </html>
 </xsl:template>

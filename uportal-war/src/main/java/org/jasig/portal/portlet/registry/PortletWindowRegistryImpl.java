@@ -264,7 +264,8 @@ public class PortletWindowRegistryImpl implements IPortletWindowRegistry {
         }
         
         if (portletWindowData == null) {
-            logger.trace("No IPortletWindow {} exists, returning null");
+            logger.trace("No IPortletWindow {} exists, returning null", portletWindowId);
+            System.out.println("No IPortletWindow " + portletWindowId + " exists, returning null");
             return null;
         }
         
@@ -394,6 +395,11 @@ public class PortletWindowRegistryImpl implements IPortletWindowRegistry {
 
         final IPortalRequestInfo portalRequestInfo = this.urlSyntaxProvider.getPortalRequestInfo(request);
         if (portalRequestInfo.getUrlState() == UrlState.DETACHED) {
+
+            System.out.println("element="+element);
+            System.out.println("nodeIdAttribute="+nodeIdAttribute);
+            System.out.println("layoutNodeId="+layoutNodeId);
+
             //Handle detached portlets explicitly
             //TODO Can we ever have non-targeted portlets render in a detached request? If so should they all be stateless windows anyways? 
             final IPortletWindowId portletWindowId = portletWindow.getPortletWindowId();

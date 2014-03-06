@@ -52,6 +52,10 @@
         <name>showChrome</name>
         <value>true</value>
     </parameter>
+    <parameter>
+        <name>showHeaderWhenDetached</name>
+        <value>true</value>
+    </parameter>
     <portlet-preference>
         <name>AnnouncementPreferences.filterItems</name>
         <readOnly>false</readOnly>

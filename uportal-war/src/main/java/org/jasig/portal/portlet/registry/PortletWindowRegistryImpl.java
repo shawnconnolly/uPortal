@@ -394,7 +394,8 @@ public class PortletWindowRegistryImpl implements IPortletWindowRegistry {
         }
 
         final IPortalRequestInfo portalRequestInfo = this.urlSyntaxProvider.getPortalRequestInfo(request);
-        if (portalRequestInfo.getUrlState() == UrlState.DETACHED) {
+        if (portalRequestInfo.getUrlState() == UrlState.DETACHED
+            && portalRequestInfo.getTargetedPortletWindowId().toString().contains("_" + nodeIdAttribute.getValue() + "_")) {
 
             System.out.println("element="+element);
             System.out.println("nodeIdAttribute="+nodeIdAttribute);
